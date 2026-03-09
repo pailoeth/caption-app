@@ -13,12 +13,10 @@ body{background:var(--bg);color:var(--txt);font-family:'Cairo',sans-serif;min-he
 body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(108,99,255,0.12) 0%,transparent 70%);pointer-events:none;z-index:0;}
 body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,101,132,0.08) 0%,transparent 70%);pointer-events:none;z-index:0;}
 .wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px;position:relative;z-index:1;}
-
-/* Header */
 .header{text-align:center;margin-bottom:36px;}
 .badge{display:inline-block;background:rgba(108,99,255,0.15);border:1px solid rgba(108,99,255,0.4);color:#a89fff;font-size:12px;font-weight:600;letter-spacing:2px;padding:5px 16px;border-radius:20px;margin-bottom:16px;}
 h1{font-size:clamp(2rem,6vw,3rem);font-weight:900;line-height:1.2;background:linear-gradient(135deg,#fff 0%,#a89fff 50%,#ff6584 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;}
-.subtitle{color:var(–muted);font-size:14px;font-family:‘Tajawal’,sans-serif;}
+.subtitle{color:var(--muted);font-size:14px;font-family:'Tajawal',sans-serif;}
 
 /* API Key */
 .setup-box{background:var(–surface);border:1px solid var(–border);border-radius:20px;padding:24px;margin-bottom:20px;}
@@ -28,50 +26,48 @@ h1{font-size:clamp(2rem,6vw,3rem);font-weight:900;line-height:1.2;background:lin
 .key-input{flex:1;min-width:0;background:rgba(255,255,255,0.05);border:1px solid var(–border);border-radius:12px;color:var(–txt);font-family:‘Cairo’,sans-serif;font-size:13px;padding:12px 14px;}
 .key-input:focus{outline:none;border-color:var(–acc);}
 .key-input::placeholder{color:var(–muted);}
-.save-key-btn{background:var(–acc);border:none;border-radius:12px;color:#fff;font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:700;padding:12px 20px;cursor:pointer;white-space:nowrap;}
-.key-saved{display:none;margin-top:10px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:12px;padding:12px 16px;color:var(–green);font-size:13px;font-family:‘Tajawal’,sans-serif;align-items:center;gap:8px;}
+.save-key-btn{background:var(–acc);border:none;border-radius:12px;color:#fff;font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:700;padding:12px 20px;cursor:pointer;}
+.key-saved{margin-top:10px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:12px;padding:12px 16px;color:var(–green);font-size:13px;font-family:‘Tajawal’,sans-serif;display:flex;align-items:center;gap:8px;}
 .change-key{background:none;border:none;color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:12px;cursor:pointer;text-decoration:underline;margin-right:auto;}
 
-/* Upload - iPhone friendly */
-.upload-section{margin-bottom:16px;}
-.upload-label{display:block;font-size:11px;font-weight:700;color:var(–muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;font-family:‘Tajawal’,sans-serif;}
+/* Upload */
+.upload-box{background:var(–surface);border:2px dashed rgba(108,99,255,0.4);border-radius:20px;padding:32px 20px;margin-bottom:16px;text-align:center;}
+.upload-box-title{font-size:17px;font-weight:700;margin-bottom:8px;}
+.upload-box-sub{font-size:13px;color:var(–muted);font-family:‘Tajawal’,sans-serif;margin-bottom:20px;}
 
-/* THE KEY FIX: visible label wrapping the input */
-.upload-btn-wrap{display:block;width:100%;cursor:pointer;}
-.upload-btn-wrap input[type=“file”]{
-position:absolute;
-width:1px;height:1px;
-opacity:0;overflow:hidden;
-clip:rect(0,0,0,0);
-white-space:nowrap;
-}
-.upload-btn{
-display:flex;align-items:center;justify-content:center;gap:14px;
-background:var(–surface);
-border:2px dashed rgba(108,99,255,0.4);
-border-radius:20px;
-padding:32px 20px;
-text-align:center;
-transition:all .3s;
-cursor:pointer;
+/* THE FIX: Native file input fully visible */
+.file-input-native{
+display:block;
 width:100%;
+font-family:‘Cairo’,sans-serif;
+font-size:15px;
+color:var(–txt);
+background:rgba(108,99,255,0.15);
+border:1px solid rgba(108,99,255,0.4);
+border-radius:12px;
+padding:14px;
+cursor:pointer;
+margin-bottom:0;
 }
-.upload-btn:active{background:rgba(108,99,255,0.1);border-color:var(–acc);}
-.upload-btn-icon{font-size:36px;}
-.upload-btn-text{text-align:right;}
-.upload-btn-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
-.upload-btn-sub{font-size:13px;color:var(–muted);font-family:‘Tajawal’,sans-serif;}
+.file-input-native::-webkit-file-upload-button{
+background:var(–acc);
+color:#fff;
+border:none;
+border-radius:8px;
+padding:8px 16px;
+font-family:‘Cairo’,sans-serif;
+font-size:14px;
+font-weight:700;
+cursor:pointer;
+margin-left:12px;
+}
 
 /* Video preview */
 .video-preview{display:none;background:var(–surface);border-radius:20px;overflow:hidden;margin-bottom:16px;border:1px solid var(–border);}
 .video-preview video{width:100%;max-height:260px;object-fit:cover;display:block;}
 .video-info{padding:14px 18px;display:flex;align-items:center;gap:10px;}
 .video-name{font-size:13px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-
-/* Change video btn - also a label */
-.change-video-wrap{display:inline-block;cursor:pointer;}
-.change-video-wrap input[type=“file”]{position:absolute;width:1px;height:1px;opacity:0;clip:rect(0,0,0,0);}
-.change-video-btn{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;display:inline-block;}
+.change-video{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;}
 
 /* Options */
 .options-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
@@ -79,10 +75,10 @@ width:100%;
 select{width:100%;background:var(–surface);border:1px solid var(–border);border-radius:12px;color:var(–txt);font-family:‘Cairo’,sans-serif;font-size:14px;padding:12px 14px;cursor:pointer;appearance:none;background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘10’ height=‘6’ viewBox=‘0 0 10 6’%3E%3Cpath d=‘M1 1l4 4 4-4’ stroke=’%237070a0’ stroke-width=‘1.5’ fill=‘none’ stroke-linecap=‘round’/%3E%3C/svg%3E”);background-repeat:no-repeat;background-position:left 14px center;}
 select:focus{outline:none;border-color:var(–acc);}
 
-/* Generate button */
-.gen-btn{width:100%;background:linear-gradient(135deg,var(–acc),#9c63ff);border:none;border-radius:16px;color:#fff;font-family:‘Cairo’,sans-serif;font-size:17px;font-weight:700;padding:18px;cursor:pointer;transition:all .3s;margin-bottom:24px;-webkit-appearance:none;}
-.gen-btn:active:not(:disabled){transform:scale(0.98);}
-.gen-btn:disabled{opacity:.5;cursor:not-allowed;}
+/* Buttons */
+.gen-btn{width:100%;background:linear-gradient(135deg,var(–acc),#9c63ff);border:none;border-radius:16px;color:#fff;font-family:‘Cairo’,sans-serif;font-size:17px;font-weight:700;padding:18px;cursor:pointer;transition:all .3s;margin-bottom:24px;}
+.gen-btn:active:not(:disabled){opacity:.85;}
+.gen-btn:disabled{opacity:.4;cursor:not-allowed;}
 
 /* Progress */
 .progress-box{display:none;background:var(–surface);border:1px solid var(–border);border-radius:16px;padding:24px;margin-bottom:16px;}
@@ -109,7 +105,7 @@ select:focus{outline:none;border-color:var(–acc);}
 .res-content.transcript{font-size:14px;font-weight:400;color:var(–muted);line-height:1.9;direction:auto;}
 .copy-btn{position:absolute;top:18px;left:18px;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.3);color:#a89fff;font-family:‘Cairo’,sans-serif;font-size:12px;padding:5px 12px;border-radius:8px;cursor:pointer;}
 .copy-btn.copied{background:rgba(74,222,128,0.15);border-color:rgba(74,222,128,0.4);color:var(–green);}
-.regen-btn{width:100%;background:transparent;border:1px solid var(–border);border-radius:14px;color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:15px;font-weight:600;padding:14px;cursor:pointer;margin-top:4px;-webkit-appearance:none;}
+.regen-btn{width:100%;background:transparent;border:1px solid var(–border);border-radius:14px;color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:15px;font-weight:600;padding:14px;cursor:pointer;margin-top:4px;}
 
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:480px){.options-row{grid-template-columns:1fr;}}
@@ -130,11 +126,13 @@ select:focus{outline:none;border-color:var(–acc);}
   <div class="setup-box" id="setupBox">
     <div class="setup-title">🔑 أدخل OpenAI API Key</div>
     <div class="setup-sub">بيتحفظ على جهازك بس — مش بيتبعت لأي مكان. بتحتاجه مرة واحدة بس.</div>
-    <div class="key-row">
-      <input type="password" class="key-input" id="keyInput" placeholder="sk-proj-...">
-      <button class="save-key-btn" id="saveKeyBtn" type="button">حفظ</button>
+    <div id="keyForm">
+      <div class="key-row">
+        <input type="password" class="key-input" id="keyInput" placeholder="sk-proj-...">
+        <button class="save-key-btn" id="saveKeyBtn" type="button">حفظ</button>
+      </div>
     </div>
-    <div id="keySavedMsg" style="display:none;margin-top:10px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:12px;padding:12px 16px;color:#4ade80;font-size:13px;font-family:'Tajawal',sans-serif;display:flex;align-items:center;gap:8px;">
+    <div class="key-saved" id="keySavedMsg" style="display:none;">
       ✅ تم حفظ الـ Key
       <button class="change-key" id="changeKeyBtn" type="button">تغيير</button>
     </div>
@@ -142,17 +140,10 @@ select:focus{outline:none;border-color:var(–acc);}
 
   <!-- Upload -->
 
-  <div class="upload-section" id="uploadSection">
-    <label class="upload-btn-wrap" id="uploadLabel">
-      <input type="file" id="fileInput" accept="video/*,audio/*">
-      <div class="upload-btn">
-        <div class="upload-btn-icon">🎬</div>
-        <div class="upload-btn-text">
-          <span class="upload-btn-title">اضغط هنا لرفع الفيديو</span>
-          <span class="upload-btn-sub">MP4 · MOV · أقل من دقيقة</span>
-        </div>
-      </div>
-    </label>
+  <div class="upload-box" id="uploadBox">
+    <div class="upload-box-title">🎬 اختر الفيديو</div>
+    <div class="upload-box-sub">MP4 · MOV · أقل من دقيقة</div>
+    <input type="file" id="fileInput" accept="video/*,audio/*" class="file-input-native">
   </div>
 
   <!-- Video Preview -->
@@ -162,10 +153,7 @@ select:focus{outline:none;border-color:var(–acc);}
     <div class="video-info">
       <span>🎥</span>
       <span class="video-name" id="videoName"></span>
-      <label class="change-video-wrap">
-        <input type="file" id="fileInput2" accept="video/*,audio/*">
-        <span class="change-video-btn">تغيير</span>
-      </label>
+      <button class="change-video" id="changeVideoBtn" type="button">تغيير</button>
     </div>
   </div>
 
@@ -233,19 +221,16 @@ select:focus{outline:none;border-color:var(–acc);}
 
 </div>
 <script>
-let selectedFile = null;
-let lastTranscript = '';
+let selectedFile=null,lastTranscript='';
 
 function getKey(){return localStorage.getItem(‘oai_key’)||’’;}
 function saveKey(k){localStorage.setItem(‘oai_key’,k);}
 
 function initKeyUI(){
-const key=getKey();
-if(key){
-document.getElementById(‘keyInput’).style.display=‘none’;
-document.getElementById(‘saveKeyBtn’).style.display=‘none’;
+if(getKey()){
+document.getElementById(‘keyForm’).style.display=‘none’;
 document.getElementById(‘keySavedMsg’).style.display=‘flex’;
-} else {
+}else{
 document.getElementById(‘keySavedMsg’).style.display=‘none’;
 }
 updateGenBtn();
@@ -255,16 +240,14 @@ document.getElementById(‘saveKeyBtn’).addEventListener(‘click’,function(
 const val=document.getElementById(‘keyInput’).value.trim();
 if(!val.startsWith(‘sk-’)){alert(‘الـ Key لازم يبدأ بـ sk-’);return;}
 saveKey(val);
-document.getElementById(‘keyInput’).style.display=‘none’;
-document.getElementById(‘saveKeyBtn’).style.display=‘none’;
+document.getElementById(‘keyForm’).style.display=‘none’;
 document.getElementById(‘keySavedMsg’).style.display=‘flex’;
 updateGenBtn();
 });
 
 document.getElementById(‘changeKeyBtn’).addEventListener(‘click’,function(){
 localStorage.removeItem(‘oai_key’);
-document.getElementById(‘keyInput’).style.display=‘block’;
-document.getElementById(‘saveKeyBtn’).style.display=‘block’;
+document.getElementById(‘keyForm’).style.display=‘block’;
 document.getElementById(‘keySavedMsg’).style.display=‘none’;
 document.getElementById(‘keyInput’).value=’’;
 updateGenBtn();
@@ -279,7 +262,7 @@ if(!file)return;
 selectedFile=file;
 document.getElementById(‘videoEl’).src=URL.createObjectURL(file);
 document.getElementById(‘videoName’).textContent=file.name;
-document.getElementById(‘uploadSection’).style.display=‘none’;
+document.getElementById(‘uploadBox’).style.display=‘none’;
 document.getElementById(‘videoPreview’).style.display=‘block’;
 document.getElementById(‘results’).style.display=‘none’;
 document.getElementById(‘errBox’).style.display=‘none’;
@@ -287,10 +270,15 @@ updateGenBtn();
 }
 
 document.getElementById(‘fileInput’).addEventListener(‘change’,function(e){
-if(e.target.files[0])handleFile(e.target.files[0]);
+handleFile(e.target.files[0]);
 });
-document.getElementById(‘fileInput2’).addEventListener(‘change’,function(e){
-if(e.target.files[0])handleFile(e.target.files[0]);
+
+document.getElementById(‘changeVideoBtn’).addEventListener(‘click’,function(){
+document.getElementById(‘videoPreview’).style.display=‘none’;
+document.getElementById(‘uploadBox’).style.display=‘block’;
+document.getElementById(‘fileInput’).value=’’;
+selectedFile=null;
+updateGenBtn();
 });
 
 const stepTexts={
@@ -313,8 +301,7 @@ async function fileToBlob(file){
 return new Promise((resolve,reject)=>{
 const reader=new FileReader();
 reader.onload=e=>{
-let mime=file.type||‘video/mp4’;
-let name=file.name;
+let mime=file.type||‘video/mp4’,name=file.name;
 if(name.toLowerCase().endsWith(’.mov’)){name=name.replace(/.mov$/i,’.mp4’);mime=‘video/mp4’;}
 resolve({blob:new Blob([e.target.result],{type:mime}),name});
 };
@@ -330,9 +317,7 @@ fd.append(‘file’,blob,name);
 fd.append(‘model’,‘whisper-1’);
 fd.append(‘response_format’,‘text’);
 const res=await fetch(‘https://api.openai.com/v1/audio/transcriptions’,{
-method:‘POST’,
-headers:{‘Authorization’:`Bearer ${getKey()}`},
-body:fd
+method:‘POST’,headers:{‘Authorization’:`Bearer ${getKey()}`},body:fd
 });
 if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`Whisper error ${res.status}`);}
 const text=await res.text();
@@ -341,11 +326,9 @@ return text.trim();
 }
 
 async function generateCaption(transcript){
-const typeEl=document.getElementById(‘contentType’);
-const toneEl=document.getElementById(‘tone’);
-const typeText=typeEl.options[typeEl.selectedIndex].text;
-const toneText=toneEl.options[toneEl.selectedIndex].text;
-const prompt=`أنت خبير كتابة محتوى سوشيال ميديا عربي. النص المنطوق: "${transcript}" نوع المحتوى: ${typeText} الأسلوب: ${toneText} اكتب: 1) تايتل جذاب قصير 2) كابشن احترافي (3-4 جمل) 3) هاشتاقات (10-12 عربي وإنجليزي) رد بـ JSON فقط: {"title":"هنا","caption":"هنا","hashtags":"#tag1 #tag2"}`;
+const typeEl=document.getElementById(‘contentType’),toneEl=document.getElementById(‘tone’);
+const typeText=typeEl.options[typeEl.selectedIndex].text,toneText=toneEl.options[toneEl.selectedIndex].text;
+const prompt=`أنت خبير كتابة محتوى سوشيال ميديا عربي. النص المنطوق: "${transcript}" نوع المحتوى: ${typeText} | الأسلوب: ${toneText} اكتب: 1) تايتل جذاب قصير 2) كابشن احترافي (3-4 جمل) 3) هاشتاقات (10-12 عربي وإنجليزي) رد بـ JSON فقط: {"title":"هنا","caption":"هنا","hashtags":"#tag1 #tag2"}`;
 const res=await fetch(‘https://api.openai.com/v1/chat/completions’,{
 method:‘POST’,
 headers:{‘Authorization’:`Bearer ${getKey()}`,‘Content-Type’:‘application/json’},
@@ -358,9 +341,7 @@ let parsed=null;
 try{parsed=JSON.parse(raw);}catch(e){}
 if(!parsed){const m=raw.match(/{[\s\S]*?}/);if(m)try{parsed=JSON.parse(m[0]);}catch(e){}}
 if(!parsed){
-const t=raw.match(/“title”\s*:\s*”(.*?)”/s);
-const c=raw.match(/“caption”\s*:\s*”([\s\S]*?)(?<!\)”/s);
-const h=raw.match(/“hashtags”\s*:\s*”(.*?)”/s);
+const t=raw.match(/“title”\s*:\s*”(.*?)”/s),c=raw.match(/“caption”\s*:\s*”([\s\S]*?)(?<!\)”/s),h=raw.match(/“hashtags”\s*:\s*”(.*?)”/s);
 parsed={title:t?.[1]||’’,caption:c?.[1]?.replace(/\n/g,’\n’)||’’,hashtags:h?.[1]||’’};
 }
 return parsed;
@@ -409,14 +390,12 @@ async function regen(){
 if(!lastTranscript){run();return;}
 document.getElementById(‘progressBox’).style.display=‘block’;
 document.getElementById(‘results’).style.display=‘none’;
-document.getElementById(‘errBox’).style.display=‘none’;
 document.getElementById(‘genBtn’).disabled=true;
 markStep(‘step1’,‘done’);markStep(‘step2’,‘done’);
 try{
 markStep(‘step3’,‘active’);
 const result=await generateCaption(lastTranscript);
-markStep(‘step3’,‘done’);
-markStep(‘step4’,‘active’);
+markStep(‘step3’,‘done’);markStep(‘step4’,‘active’);
 await new Promise(r=>setTimeout(r,300));
 markStep(‘step4’,‘done’);
 document.getElementById(‘titleOut’).textContent=result.title||’’;
