@@ -269,7 +269,7 @@ function handleFile(file) {
 selectedFile = file;
 document.getElementById(‘videoEl’).src = URL.createObjectURL(file);
 document.getElementById(‘videoName’).textContent = file.name;
-uploadZone.style.display = ‘none’;
+uploadZone.addEventListener('click', () => { fileInput.removeAttribute('capture'); fileInput.click(); });
 document.getElementById(‘videoPreview’).style.display = ‘block’;
 document.getElementById(‘results’).style.display = ‘none’;
 document.getElementById(‘errBox’).style.display = ‘none’;
