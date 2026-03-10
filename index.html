@@ -176,9 +176,9 @@ function markStep(id,state){
 const el=document.getElementById(id);
 el.classList.remove(‘active’,‘done’);
 const[icon,text]=stepTexts[id];
-if(state===‘active’){el.classList.add(‘active’);el.innerHTML=`<div class="spinner-sm"></div> ${text}`;}
-else if(state===‘done’){el.classList.add(‘done’);el.innerHTML=`<span class="step-icon">✅</span> ${text}`;}
-else{el.innerHTML=`<span class="step-icon">${icon}</span> ${text}`;}
+if(state===‘active’){el.classList.add(‘active’);el.innerHTML=’<div class="spinner-sm"></div> ${text}’;}
+else if(state===‘done’){el.classList.add(‘done’);el.innerHTML=’<span class="step-icon">✅</span> ${text}’;}
+else{el.innerHTML=’<span class="step-icon">${icon}</span> ${text}’;}
 }
 
 async function fileToBlob(file){
@@ -201,9 +201,9 @@ fd.append(‘file’,blob,name);
 fd.append(‘model’,‘whisper-1’);
 fd.append(‘response_format’,‘text’);
 const res=await fetch(‘https://api.openai.com/v1/audio/transcriptions’,{
-method:‘POST’,headers:{‘Authorization’:`Bearer ${key}`},body:fd
+method:‘POST’,headers:{‘Authorization’:‘Bearer ${key}’},body:fd
 });
-if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`خطأ ${res.status}`);}
+if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||‘خطأ ${res.status}’);}
 const text=await res.text();
 if(!text||!text.trim())throw new Error(‘لم يتم العثور على كلام في الفيديو’);
 return text.trim();
@@ -212,13 +212,17 @@ return text.trim();
 async function generateCaption(transcript,key){
 const typeEl=document.getElementById(‘contentType’),toneEl=document.getElementById(‘tone’);
 const typeText=typeEl.options[typeEl.selectedIndex].text,toneText=toneEl.options[toneEl.selectedIndex].text;
-const prompt=`أنت خبير كتابة محتوى سوشيال ميديا عربي. النص المنطوق: "${transcript}" نوع المحتوى: ${typeText} | الأسلوب: ${toneText} اكتب: 1) تايتل جذاب قصير 2) كابشن احترافي (3-4 جمل) 3) هاشتاقات (10-12 عربي وإنجليزي) رد بـ JSON فقط: {"title":"هنا","caption":"هنا","hashtags":"#tag1 #tag2"}`;
+const prompt=‘أنت خبير كتابة محتوى سوشيال ميديا عربي.
+النص المنطوق: “${transcript}”
+نوع المحتوى: ${typeText} | الأسلوب: ${toneText}
+اكتب: 1) تايتل جذاب قصير 2) كابشن احترافي (3-4 جمل) 3) هاشتاقات (10-12 عربي وإنجليزي)
+رد بـ JSON فقط: {“title”:“هنا”,“caption”:“هنا”,“hashtags”:”#tag1 #tag2”}’;
 const res=await fetch(‘https://api.openai.com/v1/chat/completions’,{
 method:‘POST’,
-headers:{‘Authorization’:`Bearer ${key}`,‘Content-Type’:‘application/json’},
+headers:{‘Authorization’:‘Bearer ${key}’,‘Content-Type’:‘application/json’},
 body:JSON.stringify({model:‘gpt-4o-mini’,max_tokens:800,messages:[{role:‘user’,content:prompt}]})
 });
-if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`خطأ ${res.status}`);}
+if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||‘خطأ ${res.status}’);}
 const data=await res.json();
 const raw=data.choices?.[0]?.message?.content?.trim()||’’;
 let parsed=null;
@@ -290,7 +294,7 @@ setTimeout(()=>{
 }catch(err){
 document.getElementById(‘progressBox’).style.display=‘none’;
 document.getElementById(‘errBox’).style.display=‘block’;
-document.getElementById(‘errBox’).innerHTML=`⚠️ ${err.message}<br><small>تأكد من الإنترنت وصحة الـ Key وحاول تاني</small>`;
+document.getElementById(‘errBox’).innerHTML=‘⚠️ ${err.message}<br><small>تأكد من الإنترنت وصحة الـ Key وحاول تاني</small>’;
 }finally{
 this.disabled=false;
 }
