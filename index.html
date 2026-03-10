@@ -204,11 +204,11 @@ async function transcribeAudio(file,key){
 async function generateCaption(transcript,key){
   const typeEl=document.getElementById('contentType'),toneEl=document.getElementById('tone');
   const typeText=typeEl.options[typeEl.selectedIndex].text,toneText=toneEl.options[toneEl.selectedIndex].text;
-  const prompt='أنت خبير كتابة محتوى سوشيال ميديا عربي.
+  const prompt=`أنت خبير كتابة محتوى سوشيال ميديا عربي.
 النص المنطوق: "${transcript}"
 نوع المحتوى: ${typeText} | الأسلوب: ${toneText}
 اكتب: 1) تايتل جذاب قصير 2) كابشن احترافي (3-4 جمل) 3) هاشتاقات (10-12 عربي وإنجليزي)
-رد بـ JSON فقط: {"title":"هنا","caption":"هنا","hashtags":"#tag1 #tag2"}';
+رد بـ JSON فقط: {"title":"هنا","caption":"هنا","hashtags":"#tag1 #tag2"}`;
   const res=await fetch('https://api.openai.com/v1/chat/completions',{
     method:'POST',
     headers:{'Authorization':'Bearer ${key}','Content-Type':'application/json'},
