@@ -13,72 +13,32 @@ body{background:var(--bg);color:var(--txt);font-family:'Cairo',sans-serif;min-he
 body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(108,99,255,0.12) 0%,transparent 70%);pointer-events:none;z-index:0;}
 body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,101,132,0.08) 0%,transparent 70%);pointer-events:none;z-index:0;}
 .wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px;position:relative;z-index:1;}
-.header{text-align:center;margin-bottom:36px;}
+
+.header{text-align:center;margin-bottom:32px;}
 .badge{display:inline-block;background:rgba(108,99,255,0.15);border:1px solid rgba(108,99,255,0.4);color:#a89fff;font-size:12px;font-weight:600;letter-spacing:2px;padding:5px 16px;border-radius:20px;margin-bottom:16px;}
-h1{font-size:clamp(2rem,6vw,3rem);font-weight:900;line-height:1.2;background:linear-gradient(135deg,#fff 0%,#a89fff 50%,#ff6584 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;}
-.subtitle{color:var(--muted);font-size:14px;font-family:'Tajawal',sans-serif;}
+h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;line-height:1.2;background:linear-gradient(135deg,#fff 0%,#a89fff 50%,#ff6584 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;}
+.subtitle{color:var(–muted);font-size:14px;font-family:‘Tajawal’,sans-serif;}
 
-/* API Key */
-.setup-box{background:var(–surface);border:1px solid var(–border);border-radius:20px;padding:24px;margin-bottom:20px;}
-.setup-title{font-size:15px;font-weight:700;margin-bottom:6px;}
-.setup-sub{font-size:13px;color:var(–muted);font-family:‘Tajawal’,sans-serif;margin-bottom:14px;line-height:1.7;}
-.key-row{display:flex;gap:10px;flex-wrap:wrap;}
-.key-input{flex:1;min-width:0;background:rgba(255,255,255,0.05);border:1px solid var(–border);border-radius:12px;color:var(–txt);font-family:‘Cairo’,sans-serif;font-size:13px;padding:12px 14px;}
-.key-input:focus{outline:none;border-color:var(–acc);}
-.key-input::placeholder{color:var(–muted);}
-.save-key-btn{background:var(–acc);border:none;border-radius:12px;color:#fff;font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:700;padding:12px 20px;cursor:pointer;}
-.key-saved{margin-top:10px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:12px;padding:12px 16px;color:var(–green);font-size:13px;font-family:‘Tajawal’,sans-serif;display:flex;align-items:center;gap:8px;}
-.change-key{background:none;border:none;color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:12px;cursor:pointer;text-decoration:underline;margin-right:auto;}
+.card{background:var(–surface);border:1px solid var(–border);border-radius:18px;padding:22px;margin-bottom:16px;}
+.card-title{font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 
-/* Upload */
-.upload-box{background:var(–surface);border:2px dashed rgba(108,99,255,0.4);border-radius:20px;padding:32px 20px;margin-bottom:16px;text-align:center;}
-.upload-box-title{font-size:17px;font-weight:700;margin-bottom:8px;}
-.upload-box-sub{font-size:13px;color:var(–muted);font-family:‘Tajawal’,sans-serif;margin-bottom:20px;}
+/* Inputs */
+.input-field{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(–border);border-radius:12px;color:var(–txt);font-family:‘Cairo’,sans-serif;font-size:15px;padding:14px 16px;transition:border-color .2s;-webkit-appearance:none;}
+.input-field:focus{outline:none;border-color:var(–acc);}
+.input-field::placeholder{color:var(–muted);}
 
-/* THE FIX: Native file input fully visible */
-.file-input-native{
-display:block;
-width:100%;
-font-family:‘Cairo’,sans-serif;
-font-size:15px;
-color:var(–txt);
-background:rgba(108,99,255,0.15);
-border:1px solid rgba(108,99,255,0.4);
-border-radius:12px;
-padding:14px;
-cursor:pointer;
-margin-bottom:0;
-}
-.file-input-native::-webkit-file-upload-button{
-background:var(–acc);
-color:#fff;
-border:none;
-border-radius:8px;
-padding:8px 16px;
-font-family:‘Cairo’,sans-serif;
-font-size:14px;
-font-weight:700;
-cursor:pointer;
-margin-left:12px;
-}
+/* File input - fully native for iPhone */
+.file-input{width:100%;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.3);border-radius:12px;color:var(–txt);font-family:‘Cairo’,sans-serif;font-size:14px;padding:14px 16px;cursor:pointer;-webkit-appearance:none;}
+.file-input::-webkit-file-upload-button{background:var(–acc);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:‘Cairo’,sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-left:10px;}
 
-/* Video preview */
-.video-preview{display:none;background:var(–surface);border-radius:20px;overflow:hidden;margin-bottom:16px;border:1px solid var(–border);}
-.video-preview video{width:100%;max-height:260px;object-fit:cover;display:block;}
-.video-info{padding:14px 18px;display:flex;align-items:center;gap:10px;}
-.video-name{font-size:13px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.change-video{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;}
-
-/* Options */
-.options-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.options-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
 .opt-label{display:block;font-size:11px;font-weight:700;color:var(–muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;font-family:‘Tajawal’,sans-serif;}
-select{width:100%;background:var(–surface);border:1px solid var(–border);border-radius:12px;color:var(–txt);font-family:‘Cairo’,sans-serif;font-size:14px;padding:12px 14px;cursor:pointer;appearance:none;background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘10’ height=‘6’ viewBox=‘0 0 10 6’%3E%3Cpath d=‘M1 1l4 4 4-4’ stroke=’%237070a0’ stroke-width=‘1.5’ fill=‘none’ stroke-linecap=‘round’/%3E%3C/svg%3E”);background-repeat:no-repeat;background-position:left 14px center;}
+select{width:100%;background:var(–surface);border:1px solid var(–border);border-radius:12px;color:var(–txt);font-family:‘Cairo’,sans-serif;font-size:14px;padding:12px 14px;cursor:pointer;-webkit-appearance:none;background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘10’ height=‘6’ viewBox=‘0 0 10 6’%3E%3Cpath d=‘M1 1l4 4 4-4’ stroke=’%237070a0’ stroke-width=‘1.5’ fill=‘none’ stroke-linecap=‘round’/%3E%3C/svg%3E”);background-repeat:no-repeat;background-position:left 14px center;}
 select:focus{outline:none;border-color:var(–acc);}
 
-/* Buttons */
-.gen-btn{width:100%;background:linear-gradient(135deg,var(–acc),#9c63ff);border:none;border-radius:16px;color:#fff;font-family:‘Cairo’,sans-serif;font-size:17px;font-weight:700;padding:18px;cursor:pointer;transition:all .3s;margin-bottom:24px;}
-.gen-btn:active:not(:disabled){opacity:.85;}
-.gen-btn:disabled{opacity:.4;cursor:not-allowed;}
+/* Main button */
+.gen-btn{width:100%;background:linear-gradient(135deg,var(–acc),#9c63ff);border:none;border-radius:16px;color:#fff;font-family:‘Cairo’,sans-serif;font-size:18px;font-weight:700;padding:20px;cursor:pointer;margin-bottom:20px;-webkit-appearance:none;transition:opacity .2s;}
+.gen-btn:active{opacity:.8;}
 
 /* Progress */
 .progress-box{display:none;background:var(–surface);border:1px solid var(–border);border-radius:16px;padding:24px;margin-bottom:16px;}
@@ -89,23 +49,21 @@ select:focus{outline:none;border-color:var(–acc);}
 .step-icon{width:24px;text-align:center;flex-shrink:0;}
 .spinner-sm{width:16px;height:16px;border:2px solid rgba(108,99,255,0.3);border-top-color:var(–acc);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0;}
 
-/* Error */
 .err{display:none;background:rgba(255,101,132,0.08);border:1px solid rgba(255,101,132,0.3);border-radius:14px;padding:16px 20px;color:#ff9eb0;font-size:14px;line-height:1.7;font-family:‘Tajawal’,sans-serif;margin-bottom:16px;}
 
-/* Results */
 .results{display:none;}
 .res-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
 .res-header h2{font-size:18px;font-weight:700;}
 .dot{width:10px;height:10px;background:var(–green);border-radius:50%;box-shadow:0 0 12px var(–green);}
 .res-card{background:var(–surface);border:1px solid var(–border);border-radius:18px;padding:22px;margin-bottom:12px;position:relative;}
 .res-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(–acc);font-family:‘Tajawal’,sans-serif;margin-bottom:10px;}
-.res-content{font-size:17px;font-weight:600;line-height:1.75;white-space:pre-wrap;word-break:break-word;}
+.res-content{font-size:16px;font-weight:600;line-height:1.75;white-space:pre-wrap;word-break:break-word;}
 .res-content.caption{font-size:15px;font-weight:400;line-height:1.9;}
 .res-content.hashtags{color:#a89fff;font-size:14px;font-weight:400;}
-.res-content.transcript{font-size:14px;font-weight:400;color:var(–muted);line-height:1.9;direction:auto;}
-.copy-btn{position:absolute;top:18px;left:18px;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.3);color:#a89fff;font-family:‘Cairo’,sans-serif;font-size:12px;padding:5px 12px;border-radius:8px;cursor:pointer;}
+.res-content.transcript{font-size:13px;font-weight:400;color:var(–muted);line-height:1.9;direction:auto;}
+.copy-btn{position:absolute;top:18px;left:18px;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.3);color:#a89fff;font-family:‘Cairo’,sans-serif;font-size:12px;padding:5px 12px;border-radius:8px;cursor:pointer;-webkit-appearance:none;}
 .copy-btn.copied{background:rgba(74,222,128,0.15);border-color:rgba(74,222,128,0.4);color:var(–green);}
-.regen-btn{width:100%;background:transparent;border:1px solid var(–border);border-radius:14px;color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:15px;font-weight:600;padding:14px;cursor:pointer;margin-top:4px;}
+.regen-btn{width:100%;background:transparent;border:1px solid var(–border);border-radius:14px;color:var(–muted);font-family:‘Cairo’,sans-serif;font-size:15px;font-weight:600;padding:14px;cursor:pointer;margin-top:4px;-webkit-appearance:none;}
 
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:480px){.options-row{grid-template-columns:1fr;}}
@@ -121,40 +79,18 @@ select:focus{outline:none;border-color:var(–acc);}
     <p class="subtitle">ارفع فيديوك وهيكتبلك الكابشن من الكلام المنطوق تلقائياً</p>
   </div>
 
-  <!-- API Key -->
+  <!-- Step 1: API Key -->
 
-  <div class="setup-box" id="setupBox">
-    <div class="setup-title">🔑 أدخل OpenAI API Key</div>
-    <div class="setup-sub">بيتحفظ على جهازك بس — مش بيتبعت لأي مكان. بتحتاجه مرة واحدة بس.</div>
-    <div id="keyForm">
-      <div class="key-row">
-        <input type="password" class="key-input" id="keyInput" placeholder="sk-proj-...">
-        <button class="save-key-btn" id="saveKeyBtn" type="button">حفظ</button>
-      </div>
-    </div>
-    <div class="key-saved" id="keySavedMsg" style="display:none;">
-      ✅ تم حفظ الـ Key
-      <button class="change-key" id="changeKeyBtn" type="button">تغيير</button>
-    </div>
+  <div class="card">
+    <div class="card-title">🔑 OpenAI API Key</div>
+    <input type="password" class="input-field" id="keyInput" placeholder="sk-proj-...">
   </div>
 
-  <!-- Upload -->
+  <!-- Step 2: Video -->
 
-  <div class="upload-box" id="uploadBox">
-    <div class="upload-box-title">🎬 اختر الفيديو</div>
-    <div class="upload-box-sub">MP4 · MOV · أقل من دقيقة</div>
-    <input type="file" id="fileInput" accept="video/*,audio/*" class="file-input-native">
-  </div>
-
-  <!-- Video Preview -->
-
-  <div class="video-preview" id="videoPreview">
-    <video id="videoEl" controls playsinline></video>
-    <div class="video-info">
-      <span>🎥</span>
-      <span class="video-name" id="videoName"></span>
-      <button class="change-video" id="changeVideoBtn" type="button">تغيير</button>
-    </div>
+  <div class="card">
+    <div class="card-title">🎬 اختر الفيديو</div>
+    <input type="file" class="file-input" id="fileInput" accept="video/*,audio/*">
   </div>
 
   <!-- Options -->
@@ -182,7 +118,11 @@ select:focus{outline:none;border-color:var(–acc);}
     </div>
   </div>
 
-<button class="gen-btn" id="genBtn" disabled type="button">✨ اكتب لي الكابشن</button>
+  <!-- Generate -->
+
+<button class="gen-btn" id="genBtn" type="button">✨ اكتب لي الكابشن</button>
+
+  <!-- Progress -->
 
   <div class="progress-box" id="progressBox">
     <div class="progress-title">⚙️ جاري المعالجة...</div>
@@ -193,6 +133,8 @@ select:focus{outline:none;border-color:var(–acc);}
   </div>
 
   <div class="err" id="errBox"></div>
+
+  <!-- Results -->
 
   <div class="results" id="results">
     <div class="res-header"><div class="dot"></div><h2>النتيجة جاهزة 🎉</h2></div>
@@ -221,65 +163,7 @@ select:focus{outline:none;border-color:var(–acc);}
 
 </div>
 <script>
-let selectedFile=null,lastTranscript='';
-
-function getKey(){return localStorage.getItem(‘oai_key’)||’’;}
-function saveKey(k){localStorage.setItem(‘oai_key’,k);}
-
-function initKeyUI(){
-if(getKey()){
-document.getElementById(‘keyForm’).style.display=‘none’;
-document.getElementById(‘keySavedMsg’).style.display=‘flex’;
-}else{
-document.getElementById(‘keySavedMsg’).style.display=‘none’;
-}
-updateGenBtn();
-}
-
-document.getElementById(‘saveKeyBtn’).addEventListener(‘click’,function(){
-const val=document.getElementById(‘keyInput’).value.trim();
-if(!val.startsWith(‘sk-’)){alert(‘الـ Key لازم يبدأ بـ sk-’);return;}
-saveKey(val);
-document.getElementById(‘keyForm’).style.display=‘none’;
-document.getElementById(‘keySavedMsg’).style.display=‘flex’;
-updateGenBtn();
-});
-
-document.getElementById(‘changeKeyBtn’).addEventListener(‘click’,function(){
-localStorage.removeItem(‘oai_key’);
-document.getElementById(‘keyForm’).style.display=‘block’;
-document.getElementById(‘keySavedMsg’).style.display=‘none’;
-document.getElementById(‘keyInput’).value=’’;
-updateGenBtn();
-});
-
-function updateGenBtn(){
-document.getElementById(‘genBtn’).disabled=!(getKey()&&selectedFile);
-}
-
-function handleFile(file){
-if(!file)return;
-selectedFile=file;
-document.getElementById(‘videoEl’).src=URL.createObjectURL(file);
-document.getElementById(‘videoName’).textContent=file.name;
-document.getElementById(‘uploadBox’).style.display=‘none’;
-document.getElementById(‘videoPreview’).style.display=‘block’;
-document.getElementById(‘results’).style.display=‘none’;
-document.getElementById(‘errBox’).style.display=‘none’;
-updateGenBtn();
-}
-
-document.getElementById(‘fileInput’).addEventListener(‘change’,function(e){
-handleFile(e.target.files[0]);
-});
-
-document.getElementById(‘changeVideoBtn’).addEventListener(‘click’,function(){
-document.getElementById(‘videoPreview’).style.display=‘none’;
-document.getElementById(‘uploadBox’).style.display=‘block’;
-document.getElementById(‘fileInput’).value=’’;
-selectedFile=null;
-updateGenBtn();
-});
+let lastTranscript='';
 
 const stepTexts={
 step1:[‘🎵’,‘قراءة الفيديو’],
@@ -310,31 +194,31 @@ reader.readAsArrayBuffer(file);
 });
 }
 
-async function transcribeAudio(file){
+async function transcribeAudio(file,key){
 const{blob,name}=await fileToBlob(file);
 const fd=new FormData();
 fd.append(‘file’,blob,name);
 fd.append(‘model’,‘whisper-1’);
 fd.append(‘response_format’,‘text’);
 const res=await fetch(‘https://api.openai.com/v1/audio/transcriptions’,{
-method:‘POST’,headers:{‘Authorization’:`Bearer ${getKey()}`},body:fd
+method:‘POST’,headers:{‘Authorization’:`Bearer ${key}`},body:fd
 });
-if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`Whisper error ${res.status}`);}
+if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`خطأ ${res.status}`);}
 const text=await res.text();
 if(!text||!text.trim())throw new Error(‘لم يتم العثور على كلام في الفيديو’);
 return text.trim();
 }
 
-async function generateCaption(transcript){
+async function generateCaption(transcript,key){
 const typeEl=document.getElementById(‘contentType’),toneEl=document.getElementById(‘tone’);
 const typeText=typeEl.options[typeEl.selectedIndex].text,toneText=toneEl.options[toneEl.selectedIndex].text;
 const prompt=`أنت خبير كتابة محتوى سوشيال ميديا عربي. النص المنطوق: "${transcript}" نوع المحتوى: ${typeText} | الأسلوب: ${toneText} اكتب: 1) تايتل جذاب قصير 2) كابشن احترافي (3-4 جمل) 3) هاشتاقات (10-12 عربي وإنجليزي) رد بـ JSON فقط: {"title":"هنا","caption":"هنا","hashtags":"#tag1 #tag2"}`;
 const res=await fetch(‘https://api.openai.com/v1/chat/completions’,{
 method:‘POST’,
-headers:{‘Authorization’:`Bearer ${getKey()}`,‘Content-Type’:‘application/json’},
+headers:{‘Authorization’:`Bearer ${key}`,‘Content-Type’:‘application/json’},
 body:JSON.stringify({model:‘gpt-4o-mini’,max_tokens:800,messages:[{role:‘user’,content:prompt}]})
 });
-if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`GPT error ${res.status}`);}
+if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`خطأ ${res.status}`);}
 const data=await res.json();
 const raw=data.choices?.[0]?.message?.content?.trim()||’’;
 let parsed=null;
@@ -347,54 +231,85 @@ parsed={title:t?.[1]||’’,caption:c?.[1]?.replace(/\n/g,’\n’)||’’,has
 return parsed;
 }
 
-async function run(){
-if(!selectedFile||!getKey())return;
+document.getElementById(‘genBtn’).addEventListener(‘click’,async function(){
+const key=document.getElementById(‘keyInput’).value.trim();
+const fileInput=document.getElementById(‘fileInput’);
+const file=fileInput.files[0];
+
+if(!key){
+alert(‘من فضلك أدخل الـ API Key الأول’);
+document.getElementById(‘keyInput’).focus();
+return;
+}
+if(!key.startsWith(‘sk-’)){
+alert(‘الـ Key غلط — لازم يبدأ بـ sk-’);
+return;
+}
+if(!file){
+alert(‘من فضلك اختر فيديو الأول’);
+return;
+}
+
 document.getElementById(‘progressBox’).style.display=‘block’;
 document.getElementById(‘results’).style.display=‘none’;
 document.getElementById(‘errBox’).style.display=‘none’;
-document.getElementById(‘genBtn’).disabled=true;
+this.disabled=true;
 [‘step1’,‘step2’,‘step3’,‘step4’].forEach(s=>markStep(s,’’));
+
 try{
 markStep(‘step1’,‘active’);
 await new Promise(r=>setTimeout(r,300));
 markStep(‘step1’,‘done’);
-markStep(‘step2’,‘active’);
-const transcript=await transcribeAudio(selectedFile);
+
+```
+markStep('step2','active');
+const transcript=await transcribeAudio(file,key);
 lastTranscript=transcript;
-markStep(‘step2’,‘done’);
-markStep(‘step3’,‘active’);
-const result=await generateCaption(transcript);
-markStep(‘step3’,‘done’);
-markStep(‘step4’,‘active’);
+markStep('step2','done');
+
+markStep('step3','active');
+const result=await generateCaption(transcript,key);
+markStep('step3','done');
+
+markStep('step4','active');
 await new Promise(r=>setTimeout(r,300));
-markStep(‘step4’,‘done’);
-document.getElementById(‘titleOut’).textContent=result.title||’’;
-document.getElementById(‘captionOut’).textContent=result.caption||’’;
-document.getElementById(‘hashtagsOut’).textContent=result.hashtags||’’;
-document.getElementById(‘transcriptOut’).textContent=transcript;
+markStep('step4','done');
+
+document.getElementById('titleOut').textContent=result.title||'';
+document.getElementById('captionOut').textContent=result.caption||'';
+document.getElementById('hashtagsOut').textContent=result.hashtags||'';
+document.getElementById('transcriptOut').textContent=transcript;
+
 setTimeout(()=>{
-document.getElementById(‘progressBox’).style.display=‘none’;
-document.getElementById(‘results’).style.display=‘block’;
-document.getElementById(‘results’).scrollIntoView({behavior:‘smooth’,block:‘start’});
+  document.getElementById('progressBox').style.display='none';
+  document.getElementById('results').style.display='block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 },500);
+```
+
 }catch(err){
 document.getElementById(‘progressBox’).style.display=‘none’;
 document.getElementById(‘errBox’).style.display=‘block’;
-document.getElementById(‘errBox’).innerHTML=`⚠️ ${err.message}<br><small>تأكد من الإنترنت وحاول تاني</small>`;
+document.getElementById(‘errBox’).innerHTML=`⚠️ ${err.message}<br><small>تأكد من الإنترنت وصحة الـ Key وحاول تاني</small>`;
 }finally{
-document.getElementById(‘genBtn’).disabled=false;
+this.disabled=false;
 }
-}
+});
 
-async function regen(){
-if(!lastTranscript){run();return;}
+document.getElementById(‘regenBtn’).addEventListener(‘click’,async function(){
+if(!lastTranscript)return;
+const key=document.getElementById(‘keyInput’).value.trim();
+if(!key){alert(‘أدخل الـ API Key الأول’);return;}
+
 document.getElementById(‘progressBox’).style.display=‘block’;
 document.getElementById(‘results’).style.display=‘none’;
+document.getElementById(‘errBox’).style.display=‘none’;
 document.getElementById(‘genBtn’).disabled=true;
 markStep(‘step1’,‘done’);markStep(‘step2’,‘done’);
+
 try{
 markStep(‘step3’,‘active’);
-const result=await generateCaption(lastTranscript);
+const result=await generateCaption(lastTranscript,key);
 markStep(‘step3’,‘done’);markStep(‘step4’,‘active’);
 await new Promise(r=>setTimeout(r,300));
 markStep(‘step4’,‘done’);
@@ -413,10 +328,7 @@ document.getElementById(‘errBox’).textContent=’⚠️ ’+err.message;
 }finally{
 document.getElementById(‘genBtn’).disabled=false;
 }
-}
-
-document.getElementById(‘genBtn’).addEventListener(‘click’,run);
-document.getElementById(‘regenBtn’).addEventListener(‘click’,regen);
+});
 
 function cp(id,btn){
 navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>{
@@ -424,8 +336,6 @@ btn.textContent=‘تم ✓’;btn.classList.add(‘copied’);
 setTimeout(()=>{btn.textContent=‘نسخ’;btn.classList.remove(‘copied’);},2000);
 });
 }
-
-initKeyUI();
 </script>
 
 </body>
