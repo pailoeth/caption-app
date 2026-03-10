@@ -177,10 +177,8 @@ async function fileToBlob(file){
   return new Promise((resolve,reject)=>{
     const reader=new FileReader();
     reader.onload=e=>{
-      // Always use mp4 mime type - Whisper accepts it from iPhone
-      let name=file.name;
-      if(name.toLowerCase().endsWith('.mov')){name=name.replace(/\.mov$/i,'.mp4');}
-      // Force mp4 mime type regardless of original
+      // Force name to .mp4 - Whisper uses filename extension
+      const name='audio.mp4';
       resolve({blob:new Blob([e.target.result],{type:'video/mp4'}),name:name});
     };
     reader.onerror=()=>reject(new Error('فشل قراءة الملف'));
