@@ -187,9 +187,11 @@ async function fileToBlob(file){
 }
 
 async function transcribeAudio(file,key){
-  const{blob,name}=await fileToBlob(file);
   const fd=new FormData();
-  fd.append('file',blob,name);
+  // Read file as ArrayBuffer and create new Blob with forced mp4 type
+  const arrayBuffer=await file.arrayBuffer();
+  const forcedBlob=new Blob([arrayBuffer],{type:'video/mp4'});
+  fd.append('file',forcedBlob,'audio.mp4');
   fd.append('model','whisper-1');
   fd.append('response_format','text');
   const res=await fetch('https://api.openai.com/v1/audio/transcriptions',{
